@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div id="header">
+    <h1><b>{{ header }}</b></h1>
+    <hr>
+    <p>{{ comment }}</p>
+</div>
+{% if movies %}
+<form action="/search" method="post" id="add_movie">
+    <input hidden value="results" name="type">
+    <ul>
+    {% for movie in movies %}
+        <li>
+            <input class="form-check-input" type="radio" id="flexRadioDefault2" name="movie" value="{{ movie.id }}">
+            <label class="form-check-label">{{ movie.title }} ({{ movie.release_date.split('-')[0] }})</label>
+        </li>
+    {% endfor %}
+    </ul>
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary btn-lg" id="movie_search_button">Select</button>
+        &nbsp&nbsp
+        <button type="button" class="btn btn-primary btn-lg" id="search_cancel_button" onclick="window.location.pathname = '/search'">Cancel</button>
+    </div>
+</form>
+{% else %}
+<form action="/search" method="post">
+    <input hidden value="search" name="type">
+    <input type="text" placeholder="Movie Title" name="title" id="movie_search_input" required>
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary btn-lg" id="movie_search_button">Search</button>
+    </div>
+</form>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,260 @@
+body {
+    background-color: #A0BFE0;
+    font-size: 1.15rem;
+    color: white;
+}
+
+#home_button {
+    background-image: linear-gradient(to bottom right, DodgerBlue, RoyalBlue);
+    border-radius: 100px;
+    margin: 20px 20px 0px;
+    color: white;
+}
+
+#header {
+    padding: 15px;
+    color: white;
+}
+
+#header hr {
+    width: 150px; 
+    height: 10px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.flip-card-inner {
+    position: relative;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-inner:hover {
+    transform: rotateY(180deg);
+}
+
+.flip-card {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    width: 500px;
+    height: 700px;
+}
+
+.flip-card-back {
+    width: 500px;
+    height: 750px;
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    background-color: white;
+    color: black;
+    transform: rotateY(180deg);
+}
+
+#movies_container {
+    height: 800px;
+}
+
+#movies img {
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+    border-radius: 8px;
+    filter: contrast(50%);
+}
+
+#movie_place {
+    pointer-events: none;
+    position: absolute;
+    padding: 0;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10rem;
+    font-weight: 500;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    #movies img {
+      max-width: 70%;
+      height: auto;
+    }
+
+    .flip-card-back {
+        width: 350px;
+        height: 525px;
+        font-size: 1rem;
+    }
+
+    #movie_place { 
+        font-size: 7rem;
+    }
+  }
+
+#movies {
+    height: 100vh;
+    margin: 0;
+}
+
+#update_forms input, #update_forms textarea {
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+#update_forms input {
+    width: 20%;
+    border: 1.5px solid silver;
+    z-index: 9999;
+}
+
+#update_forms textarea {
+    width: 80%;
+}
+
+#update_forms button {
+    color: white;
+    background-color: transparent;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 40px;
+}
+
+#update_submit_button {
+    background-image: linear-gradient(to bottom right, #2ECC71, #229954);
+    border-color: #229954;
+}
+
+#update_cancel_button { 
+    background-image: linear-gradient(to bottom right, red, #A93226);
+    border-color: #A93226;
+}
+
+#add_button {
+    background-image: linear-gradient(to bottom right, DodgerBlue, RoyalBlue);
+    border-color: royalblue;
+    color: white;
+    background-color: transparent;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    border-radius: 40px;
+}
+
+#update_button, #delete_button {
+    background-image: linear-gradient(to bottom right, red, #A93226);
+    border-color: #A93226;
+    color: white;
+    background-color: transparent;
+    text-align: center;
+    border-radius: 40px;
+}
+
+#update_button {
+    background-image: linear-gradient(to bottom right, DodgerBlue, royalblue);
+    border-color: royalblue;
+}
+
+#movie_search_button, #search_cancel_button {
+    color: white;
+    background-color: transparent;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    border-radius: 40px;
+}
+
+#movie_search_button {
+    background-image: linear-gradient(to bottom right, DodgerBlue, royalblue);
+    border-color: royalblue;
+}
+
+#search_cancel_button {
+    background-image: linear-gradient(to bottom right, red, #A93226);
+    border-color: #A93226;
+}
+
+#movie_search_input {
+    border-radius: 6px;
+    width: 20%;
+    height: 5vh;
+    border: none;
+    margin: 40px 40% 20px;
+    padding: 10px;
+}
+
+#add_movie ul {
+    list-style: none;
+}
+
+#add_movie li {
+    margin: 0 0 30px 0;
+}
+
+#add_movie label {
+    padding: 0 5px;
+}
+
+#movie_info {
+    margin-top: 20px;
+}
+
+#movie_info ul {
+    list-style: none; 
+    text-align: center;
+    margin-top: 10px;
+}
+
+#movie_info li {
+    margin-top: 10px;
+}
+
+#movie_rating_input {
+    border-radius: 6px;
+    width: 5.5%;
+    height: 5vh;
+    border: none;
+    padding: 10px;
+    margin: 0 5px 0 0; 
+}
+
+#movie_comment_input {
+    border-radius: 6px;
+    width: 30%;
+    height: 10vh;
+    border: none;
+    padding: 10px;
+    margin: 15px 5px; 
+}
+
+#adding_form {
+    margin-bottom: 50px;
+}
+
+#adding_form ul {
+    list-style-type: none;
+}
+
+#adding_form li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#adding_form button {
+    background-image: linear-gradient(to bottom right, DodgerBlue, RoyalBlue);
+    background-color: transparent;
+    margin: 0 46%;
+    border-radius: 40px;
+}
