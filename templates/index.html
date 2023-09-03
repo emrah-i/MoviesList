@@ -36,6 +36,7 @@
                         <form action="/update/{{ movie.id }}" method="post" style="display:none;" id="update_form{{ movie.id }}">
                             <input type="text" name="rating" placeholder="Rating" required><span> / 10 <span style="color:gold;">&starf;</span><br>
                             <textarea placeholder="Comments" name="comments" required></textarea><br>
+                            <input class="form-control my-3 w-50 mx-auto" type="text" name="code" placeholder="Code">
                             <button type="button" class="btn btn-lg" id="update_submit_button">Submit</button>
                             &nbsp
                             <button type="button" class="btn btn-lg" id="update_cancel_button">Cancel</button>

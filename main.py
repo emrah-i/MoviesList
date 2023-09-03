@@ -49,7 +49,7 @@ def add(id):
     url = f"https://api.themoviedb.org/3/movie/{id}"
     headers = {
         "accept": "application/json",
-        "Authorization": os.getenv('AUTH_TOKEN')
+        "Authorization": "Bearer " + os.getenv('AUTH_TOKEN')
     }
     response = requests.get(url, headers=headers)
     movie = response.json()
