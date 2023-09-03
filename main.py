@@ -96,6 +96,12 @@ def update(id):
 
 @app.route('/delete/<int:id>', methods=['POST', 'GET'])
 def delete(id):
+    input_code = request.form.get('code')
+
+    if input_code != code:
+        flash('Code is incorrect!')
+        return redirect('/')
+    
     movie = db.session.query(Movies).filter(Movies.id == id).first()
     db.session.delete(movie)
     db.session.commit()
