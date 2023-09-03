@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, flash
 from models import Movies, db, app
 import requests
 import os
@@ -58,6 +58,11 @@ def add(id):
     if request.method == 'POST':
         rating = request.form.get('rating')
         comment = request.form.get('comment')
+        input_code = request.form.get('code')
+
+        if input_code != code:
+            flash('Code is incorrect!')
+            return redirect('/search')
 
         new_movie = Movies()
         new_movie.id = movie['id']
@@ -77,6 +82,12 @@ def add(id):
 def update(id):
     rating = request.form.get('rating')
     comment = request.form.get('comments')
+    input_code = request.form.get('code')
+
+    if input_code != code:
+        flash('Code is incorrect!')
+        return redirect('/')
+
     movie = db.session.query(Movies).filter(Movies.id == id).first()
     movie.rating = rating
     movie.comment = comment

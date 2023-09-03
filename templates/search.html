@@ -28,6 +28,13 @@
     <input hidden value="search" name="type">
     <input type="text" placeholder="Movie Title" name="title" id="movie_search_input" required>
     <div class="d-flex justify-content-center">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p><br/>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
         <button type="submit" class="btn btn-primary btn-lg" id="movie_search_button">Search</button>
     </div>
 </form>
