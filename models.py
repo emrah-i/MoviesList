@@ -1,10 +1,11 @@
 from flask import Flask
 from sqlalchemy import Column, Integer, String, Float
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 db = SQLAlchemy()
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 db.init_app(app)
 
 class Movies(db.Model):
