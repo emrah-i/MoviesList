@@ -24,7 +24,7 @@
     </div>
 </form>
 {% else %}
-<form action="/search" method="post">
+<form action="/search" method="post" class="d-flex flex-column align-items-center">
     <input hidden value="search" name="type">
     <input type="text" placeholder="Movie Title" name="title" id="movie_search_input" required>
     <div class="d-flex justify-content-center">

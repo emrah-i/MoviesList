@@ -2,30 +2,59 @@ body {
     background-color: #A0BFE0;
     font-size: 1.15rem;
     color: white;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+input, textarea {
+    min-height: 1rem;
+    padding: .5rem;
+    margin: .5rem auto;
+    border-radius: .5rem;
+    border: none;
+}
+
+textarea {
+    border: 1.5px solid #c0c0c0;
+}
+
+.btn {
+    font-weight: 600;
+    padding-bottom: .65rem !important;
+    border: none;
+    border-radius: 5rem;
+    transition: all .4s ease-in-out;
+}
+
+.btn:hover {
+    color: white;
+    transform: scale(1.1);
 }
 
 #home_button {
     background-image: linear-gradient(to bottom right, DodgerBlue, RoyalBlue);
-    border-radius: 100px;
-    margin: 20px 20px 0px;
+    margin: 2rem 2rem 0;
     color: white;
 }
 
 #header {
-    padding: 15px;
+    padding: 1rem 2rem 2rem;
     color: white;
 }
 
 #header hr {
-    width: 150px; 
-    height: 10px;
-    color: rgba(255, 255, 255, 1);
+    width: 10rem; 
+    height: 0;
+    border: .4rem solid white;
+    opacity: 1;
 }
 
 .flip-card-inner {
     position: relative;
     text-align: center;
+    transition: -webkit-transform 0.8s;
     transition: transform 0.8s;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
@@ -34,6 +63,7 @@ body {
 }
 
 .flip-card {
+    perspective: 1000px;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -43,7 +73,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
+    backface-visibility: hidden !important;
 }
 
 .flip-card-front {
@@ -54,12 +84,13 @@ body {
 .flip-card-back {
     width: 500px;
     height: 750px;
-    padding: 15px;
+    padding: 1rem;
+    z-index: 2;
     font-size: 1.2rem;
-    border-radius: 6px;
+    border-radius: .5rem;
     background-color: white;
     color: black;
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) translateZ(1px);
 }
 
 #movies_container {
@@ -70,7 +101,8 @@ body {
     max-width: 100%;
     height: auto;
     text-align: center;
-    border-radius: 8px;
+    border-radius: .5rem;
+    transition: all .5s ease 1s;
     filter: contrast(50%);
 }
 
@@ -84,7 +116,7 @@ body {
     transform: translate(-50%, -50%);
     font-size: 10rem;
     font-weight: 500;
-    z-index: 2;
+    z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -105,42 +137,43 @@ body {
   }
 
 #movies {
-    height: 100vh;
+    height: 8rem;
     margin: 0;
 }
 
-#update_forms input, #update_forms textarea {
-    padding: 5px;
-    margin-top: 10px;
+.movie_button_div {
+    z-index: 2;
+}
+
+.update_forms textarea {
+    padding: .5rem;
+    margin-top: 1rem;
     border-radius: 6px;
 }
 
-#update_forms input {
-    width: 20%;
+.update_forms input {
+    width: 25%;
     border: 1.5px solid silver;
-    z-index: 9999;
+    z-index: 999;
 }
 
-#update_forms textarea {
+.update_forms textarea {
     width: 80%;
 }
 
-#update_forms button {
+.update_forms button {
     color: white;
     background-color: transparent;
-    margin-top: 10px;
+    margin-top: .75rem;
     text-align: center;
-    border-radius: 40px;
 }
 
 #update_submit_button {
     background-image: linear-gradient(to bottom right, #2ECC71, #229954);
-    border-color: #229954;
 }
 
 #update_cancel_button { 
     background-image: linear-gradient(to bottom right, red, #A93226);
-    border-color: #A93226;
 }
 
 #add_button {
@@ -148,9 +181,7 @@ body {
     border-color: royalblue;
     color: white;
     background-color: transparent;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    border-radius: 40px;
+    margin: 1rem auto;
 }
 
 #update_button, #delete_button {
@@ -159,7 +190,6 @@ body {
     color: white;
     background-color: transparent;
     text-align: center;
-    border-radius: 40px;
 }
 
 #update_button {
@@ -170,9 +200,8 @@ body {
 #movie_search_button, #search_cancel_button {
     color: white;
     background-color: transparent;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    border-radius: 40px;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
 }
 
 #movie_search_button {
@@ -186,12 +215,9 @@ body {
 }
 
 #movie_search_input {
-    border-radius: 6px;
-    width: 20%;
-    height: 5vh;
-    border: none;
-    margin: 40px 40% 20px;
-    padding: 10px;
+    width: 15rem;
+    margin: 0 auto;
+    padding: .5rem;
 }
 
 #add_movie ul {
@@ -207,39 +233,50 @@ body {
 }
 
 #movie_info {
-    margin-top: 20px;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+
+#movie_info .row:nth-child(2) div {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 #movie_info ul {
     list-style: none; 
     text-align: center;
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
 #movie_info li {
-    margin-top: 10px;
+    margin-top: 1rem;
+}
+
+.code-inpt {
+    min-width: 8rem !important;
+    margin: 1rem auto .75rem;
 }
 
 #movie_rating_input {
-    border-radius: 6px;
-    width: 5.5%;
-    height: 5vh;
+    min-width: 8rem;
     border: none;
-    padding: 10px;
-    margin: 0 5px 0 0; 
+    margin: auto .5rem; 
 }
 
 #movie_comment_input {
-    border-radius: 6px;
-    width: 30%;
-    height: 10vh;
+    min-width: 20rem;
+    min-height: 1rem;
+    border-radius: .5rem;
     border: none;
-    padding: 10px;
-    margin: 15px 5px; 
+    padding: 1rem;
+    margin: 1rem auto 0; 
 }
 
 #adding_form {
-    margin-bottom: 50px;
+    width: 100%;
+    margin-bottom: 3.5rem;
 }
 
 #adding_form ul {
@@ -255,6 +292,5 @@ body {
 #adding_form button {
     background-image: linear-gradient(to bottom right, DodgerBlue, RoyalBlue);
     background-color: transparent;
-    margin: 0 46%;
-    border-radius: 40px;
+    margin: 0 auto;
 }
