@@ -11,9 +11,17 @@
     <input hidden value="results" name="type">
     <ul>
     {% for movie in movies %}
-        <li>
-            <input class="form-check-input" type="radio" id="flexRadioDefault2" name="movie" value="{{ movie.id }}">
-            <label class="form-check-label">{{ movie.title }} ({{ movie.release_date.split('-')[0] }})</label>
+        <li class="label-poster-div" id="movie-div-{{ movie.id }}">
+            <img class="movie-search-imgs" src="{{ movie.img_src }}" alt="No Poster" />
+            <label class="movie-labels">
+                {{ movie.title }} 
+                {% if movie.release_date and movie.release_date != None %} 
+                    ({{ movie.release_date.split('-')[0] }})
+                {% else %}
+                    (None)
+                {% endif %}
+                <input type="radio" class="movie-radio" name="movie" data-id="{{ movie.id }}" value="{{ movie.id }}">
+            </label>
         </li>
     {% endfor %}
     </ul>
@@ -26,7 +34,7 @@
 {% else %}
 <form action="/search" method="post" class="d-flex flex-column align-items-center">
     <input hidden value="search" name="type">
-    <input type="text" placeholder="Movie Title" name="title" id="movie_search_input" required>
+    <input type="text" placeholder="Movie Title" name="title" id="movie_search_input" autofocus required>
     <div class="d-flex justify-content-center">
         {% with messages = get_flashed_messages() %}
         {% if messages %}

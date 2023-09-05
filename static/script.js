@@ -37,4 +37,20 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         })
     }
+
+    if (document.querySelector('.movie-radio')) {
+        allRadio = document.querySelectorAll('.movie-radio')
+
+        allRadio.forEach(element=> {
+            element.addEventListener('change', (event)=> {
+                document.querySelectorAll('.label-poster-div').forEach(item => {
+                    item.classList.remove("movie-div-selected");
+                });
+
+                id = event.target.dataset.id
+                movieDiv = document.querySelector('#movie-div-' + id)             
+                movieDiv.classList.toggle("movie-div-selected");
+            })
+        })
+    }
 })

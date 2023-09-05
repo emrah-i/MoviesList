@@ -26,11 +26,15 @@ def search():
             url = f"https://api.themoviedb.org/3/search/movie?query={title}"
             headers = {
                 "accept": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZmY3NWFhZWZjN2JhNTcyOTU1Y2NlNzIyODQ0NThhZiIsInN1YiI6IjY0YjFlY2VhZTBjYTdmMDBhZTc0ZTAxZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6p5_kLqkcX9uYw_-6aNdAOSI9a5vxAEpu0S84JPZU98"
+                "Authorization": "Bearer " + os.getenv('AUTH_TOKEN')
             }
             response = requests.get(url, headers=headers)
             data = response.json()
             movies = data['results']
+            start = 'https://image.tmdb.org/t/p/w1280/'
+            for movie in movies:
+                if movie['poster_path'] != None:
+                    movie['img_src'] = start + movie['poster_path']
             header = 'Select a Movie'
             comment = 'Select a movie from the list below by clicking on it.'
             return render_template('search.html', header=header, comment=comment, movies=movies)
