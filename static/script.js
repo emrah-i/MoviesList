@@ -31,8 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('#delete_button')) {
         document.querySelectorAll('#delete_button').forEach((element) => {
             element.addEventListener('click', (event) => {
-                if (confirm("Are you sure you would like to delete this movie?")) {
+                if (prompt("Are you sure you would like to delete this movie?") === 'ilovecats') {
                     event.target.closest('form').submit()
+                }
+                else {
+                    alert('Wrong code')
                 }
             })
         })
